@@ -214,3 +214,13 @@ document.querySelector(".show-sidebar").addEventListener("click", () => {
     sideBar.classList.toggle("tablet-view")
   }
 })
+document.querySelector(".show-sidebar").addEventListener("touchstart", () => {
+  updateWindowSize()
+  if (width < 550) {
+    sideBar.classList.toggle("mobile-view")
+  }
+  updateWindowSize()
+  if (width > 550 && width < 790) {
+    sideBar.classList.toggle("tablet-view")
+  }
+})
