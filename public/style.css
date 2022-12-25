@@ -153,6 +153,10 @@ button.show-sidebar {
     bottom: 0%;
     padding: 10px;
     height: 65px;
+    z-index: 10;
+  }
+  .message-box .message-input {
+    background-color: #fff !important;
   }
   .container-messages {
     display: flex;
