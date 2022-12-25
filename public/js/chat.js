@@ -168,59 +168,39 @@ function updateWindowSize() {
 window.onresize = function (event) {
   updateWindowSize()
   if (width < 550) {
-    mainContainer.classList.add("mobile-view")
-    contentContainer.classList.add("mobile-view")
-    header.classList.add("mobile-view")
-    chatContainer.classList.add("mobile-view")
-    form.classList.add("mobile-view")
-    btnShowSidebar.classList.add("mobile-view")
     updateWindowSize()
   } else if (width < 790) {
-    mainContainer.classList.remove("mobile-view")
-    contentContainer.classList.remove("mobile-view")
-    header.classList.remove("mobile-view")
-    chatContainer.classList.remove("mobile-view")
-    form.classList.remove("mobile-view")
-    sideBar.classList.remove("mobile-view")
-    btnShowSidebar.classList.remove("mobile-view")
-    btnShowSidebar.classList.add("mobile-view")
-    mainContainer.classList.add("tablet-view")
     sideBar.classList.add("tablet-view")
     contentContainer.classList.add("tablet-view")
     chatContainer.classList.add("tablet-view")
     updateWindowSize()
   } else if (width > 800) {
-    btnShowSidebar.classList.remove("mobile-view")
-    mainContainer.classList.remove("tablet-view")
     sideBar.classList.remove("tablet-view")
     contentContainer.classList.remove("tablet-view")
     chatContainer.classList.remove("tablet-view")
   }
 
-  btnShowSidebar.classList.remove("mobile-view")
   mainContainer.classList.remove("tablet-view")
   sideBar.classList.remove("tablet-view")
   contentContainer.classList.remove("tablet-view")
   chatContainer.classList.remove("tablet-view")
 }
 
-document.querySelector(".show-sidebar").addEventListener("click", () => {
-  updateWindowSize()
-  if (width < 550) {
-    sideBar.classList.toggle("mobile-view")
-  }
-  updateWindowSize()
-  if (width > 550 && width < 790) {
-    sideBar.classList.toggle("tablet-view")
-  }
-})
+// document.querySelector(".show-sidebar").addEventListener("click", () => {
+//   updateWindowSize()
+//   if (width < 550) {
+//     sideBar.classList.add("mobile-view")
+//     sideBar.classList.toggle("show-sidebar")
+//   }
+//   updateWindowSize()
+//   if (width > 550 && width < 790) {
+//     sideBar.classList.toggle("tablet-view")
+//   }
+// })
 document.querySelector(".show-sidebar").addEventListener("touchstart", () => {
-  updateWindowSize()
-  if (width < 550) {
-    sideBar.classList.toggle("mobile-view")
-  }
-  updateWindowSize()
-  if (width > 550 && width < 790) {
-    sideBar.classList.toggle("tablet-view")
-  }
+  sideBar.classList.toggle("mobile-view")
 })
+
+setTimeout(() => {
+  sideBar.classList.remove("mobile-view")
+}, 2000)

@@ -41,14 +41,6 @@ body {
   margin: 0 auto;
   background-color: #fff;
 }
-.container.mobile-view {
-  max-width: 480px;
-}
-
-.container.tablet-view {
-  max-width: 790px !important;
-}
-
 .side-bar {
   width: 200px;
   height: 100%;
@@ -64,25 +56,18 @@ body {
     left: -200px;
   }
 }
-.side-bar.mobile-view {
-  left: 0px;
-  z-index: 5;
-  width: 150px;
-}
-.side-bar.tablet-view {
-}
+
 button.show-sidebar {
   display: none;
   position: absolute;
-  left: 10px;
-  top: 20px;
+  left: 0;
   font-size: 14px;
   color: #555;
   font-weight: 700;
   border: none;
   cursor: pointer;
   background-color: #8bdd11;
-  padding: 8px;
+  padding: 3px;
   border-radius: 8px;
   z-index: 10;
 }
@@ -98,9 +83,6 @@ button.show-sidebar {
 
 .online-users {
   margin-top: 20px;
-}
-
-#online-users {
 }
 
 #current-room {
@@ -142,24 +124,78 @@ button.show-sidebar {
     left: 0;
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 480px) {
+  .container {
+    max-width: 420px;
+    min-width: 360px;
+    max-height: 860px;
+    min-height: 760px;
+  }
+
   .content-container {
+    position: relative;
     max-width: 100%;
   }
+  .header {
+    width: 100%;
+  }
+  .chat-container {
+    margin-top: 70px;
+    padding-bottom: 20px;
+    margin-left: 0;
+    width: 100%;
+
+    max-height: 680px !important;
+  }
+  .message-box {
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    padding: 10px;
+    height: 65px;
+  }
+  .container-messages {
+    display: flex;
+    min-height: 30px !important;
+
+    width: 100% !important;
+    position: relative !important;
+
+    box-sizing: border-box;
+  }
+
+  .user-name {
+    position: absolute !important;
+    top: 0px !important;
+    margin-bottom: 10px;
+    width: 80%;
+  }
+  .message {
+    flex-basis: 100%;
+  }
+  #send-location {
+    width: 80px;
+    padding: 0 !important;
+    font-size: 14px !important;
+    background-color: var(--blue-sky-primary) !important;
+    color: #03045e !important;
+  }
+  .show-sidebar {
+    display: block !important;
+  }
   .side-bar {
-    transition: all 2s ease;
-    left: -300px;
-  }
-  button.show-sidebar {
     display: block;
+    position: absolute;
+    left: -200px;
+    z-index: 8;
+    width: 150px !important;
+    transition: left 1s ease;
+  }
+  .side-bar.mobile-view {
+    left: 0;
   }
 }
-.content-container.mobile-view {
-  width: 100%;
-}
-.content-container.tablet-view {
-  width: 100%;
-}
+/* ? ===================End Of Responsive mobile ======= */
 .header {
   position: absolute;
   top: 0;
@@ -183,6 +219,7 @@ button.show-sidebar {
   border-radius: 15px;
   text-align: center;
   font-family: "Dancing Script", cursive;
+  z-index: 10;
 }
 
 #send-location {
@@ -263,8 +300,7 @@ textarea:focus:-webkit-placeholder {
   padding: 10px;
   overflow-y: scroll;
 }
-.chat-container.tablet-view {
-}
+
 .container-messages {
   width: 60%;
   height: 80px;
